@@ -30,7 +30,7 @@ steps:
 
       git config --global user.email "$GIT_USER_EMAIL"
       git config --global user.name "$GIT_USER_NAME"
-      git remote set origin git@github.com:reeveci/reeveci.github.io
+      git remote add origin git@github.com:reeveci/reeveci.github.io
 
       npm ci
       npm run deploy
