@@ -15,8 +15,8 @@ steps:
     task: "@reeve/npm-cli"
     params:
       SSH_KEY: { env: github/reeve/documentation/ssh-key }
-      GIT_USER_NAME: { env: github/reeve/documentation/name }
       GIT_USER_EMAIL: { env: github/reeve/documentation/email }
+      GIT_USER_NAME: { env: github/reeve/documentation/name }
     command: /bin/sh
     input: |
       set -e
@@ -27,6 +27,10 @@ steps:
       chmod 0700 ~/.ssh
       chmod 0600 ~/.ssh/config ~/.ssh/id_github
       unset SSH_KEY
+
+      git config --global user.email "$GIT_USER_EMAIL"
+      git config --global user.name "$GIT_USER_NAME"
+      git remote set origin git@github.com:reeveci/reeveci.github.io
 
       npm ci
       npm run deploy
