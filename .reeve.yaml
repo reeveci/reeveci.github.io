@@ -28,4 +28,5 @@ steps:
       chmod 0600 ~/.ssh/config ~/.ssh/id_github
       unset SSH_KEY
 
+      npm ci
       npm run deploy
