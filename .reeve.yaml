@@ -33,4 +33,4 @@ steps:
       git remote add origin git@github.com:reeveci/reeveci.github.io
 
       npm ci
-      npm run deploy
+      GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new" npm run deploy
