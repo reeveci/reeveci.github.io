@@ -15,17 +15,21 @@ steps:
     task: "@reeve/npm-cli"
     params:
       SSH_KEY: { env: github/reeve/documentation/ssh-key }
+      SSH_KNOWN_HOSTS: |
+        github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+        github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+        github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
       GIT_USER_EMAIL: { env: github/reeve/documentation/email }
       GIT_USER_NAME: { env: github/reeve/documentation/name }
     command: /bin/sh
     input: |
       set -e
 
-      mkdir -p ~/.ssh
+      mkdir -m 0700 -p ~/.ssh
+      echo 'IdentityFile ~/.ssh/id_github' >~/.ssh/config
       echo "$SSH_KEY" >~/.ssh/id_github
-      echo "IdentityFile ~/.ssh/id_github" >~/.ssh/config
-      chmod 0700 ~/.ssh
-      chmod 0600 ~/.ssh/config ~/.ssh/id_github
+      echo "$SSH_KNOWN_HOSTS" >~/.ssh/known_hosts
+      chmod 0600 ~/.ssh/config ~/.ssh/id_github ~/.ssh/known_hosts
       unset SSH_KEY
 
       git config --global user.email "$GIT_USER_EMAIL"
@@ -33,4 +37,4 @@ steps:
       git remote add origin git@github.com:reeveci/reeveci.github.io
 
       npm ci
-      GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new" npm run deploy
+      npm run deploy
