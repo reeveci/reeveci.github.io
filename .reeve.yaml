@@ -30,7 +30,7 @@ steps:
       echo "$SSH_KEY" >~/.ssh/id_github
       echo "$SSH_KNOWN_HOSTS" >~/.ssh/known_hosts
       chmod 0600 ~/.ssh/config ~/.ssh/id_github ~/.ssh/known_hosts
-      unset SSH_KEY
+      unset SSH_KEY SSH_KNOWN_HOSTS
 
       git config --global user.email "$GIT_USER_EMAIL"
       git config --global user.name "$GIT_USER_NAME"
