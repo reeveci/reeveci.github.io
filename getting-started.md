@@ -97,6 +97,46 @@ services:
 
 ::::
 
+## 2. Add plugins
+
+Reeve uses plugins to integrate other software.
+You can add Reeve plugins to the plugin directory (`/etc/reeve/plugins`).
+
+To install a plugin from source, use the `go install` command:
+
+::: tip
+
+Replace `/etc/reeve/plugins` with the path of your plugin directory.
+
+:::
+
+::: code-group
+
+```sh [Latest version]
+CGO_ENABLED=0 GOBIN=/etc/reeve/plugins go install github.com/reeveci/plugin-webui@latest
+```
+
+```sh [Specific version]
+CGO_ENABLED=0 GOBIN=/etc/reeve/plugins go install github.com/reeveci/plugin-webui@v1.8.2
+```
+
+:::
+
+Configuration for each plugin is provided as environment variables to the Reeve server.
+Each plugin uses its own prefix `REEVE_PLUGIN_<plugin identifier>_`.
+If you want to specify a setting for all available plugins, you can use the `REEVE_SHARED_` prefix instead.
+
+```yaml
+services:
+  reeve:
+    image: reeveci/reeve:latest
+    # ...
+    environment:
+      # ...
+      REEVE_SHARED_CONFIG_PATH: "/etc/reeve/config"
+      REEVE_PLUGIN_WEBUI_ENABLED: "true"
+```
+
 :::: details Click to see how to build your own Docker image with your plugins preinstalled
 
 ::: code-group
@@ -127,7 +167,7 @@ ENV REEVE_SHARED_CONFIG_PATH=/etc/reeve/config
 
 ::::
 
-## 2. Add workers
+## 3. Start workers
 
 Workers are grouped into `worker groups`. A pipeline specifies which worker group(s) it should be executed on.
 When a pipeline is triggered, it is run on an available worker assigned to the specified worker group.
