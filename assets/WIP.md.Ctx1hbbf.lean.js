@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as i,aj as a}from"./chunks/framework.CSCBGoZg.js";const g=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"WIP.md","filePath":"WIP.md","lastUpdated":0}'),r={name:"WIP.md"};function h(n,s,p,l,k,d){return i(),t("div",null,[...s[0]||(s[0]=[a("",3)])])}const c=e(r,[["render",h]]);export{g as __pageData,c as default};
