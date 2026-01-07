@@ -1,38 +1,38 @@
----
-type: pipeline
-name: Deploy Reeve Documentation
+# ---
+# type: pipeline
+# name: Deploy Reeve Documentation
 
-when:
-  workerGroup:
-    include: [soldier]
-  trigger:
-    include: [commit, action]
-  action:
-    include: [reeveci:documentation:deploy]
+# when:
+#   workerGroup:
+#     include: [soldier]
+#   trigger:
+#     include: [commit, action]
+#   action:
+#     include: [reeveci:documentation:deploy]
 
-steps:
-  - name: Deploy
-    task: "@reeve/npm-cli"
-    params:
-      SSH_KNOWN_HOSTS: { env: github/fingerprints }
-      SSH_KEY: { env: github/reeveci/reeveci.github.io/ssh-key }
-      GIT_USER_EMAIL: { env: github/reeveci/reeveci.github.io/email }
-      GIT_USER_NAME: { env: github/reeveci/reeveci.github.io/name }
-      GIT_REMOTE: git@github.com:reeveci/reeveci.github.io
-    command: /bin/sh
-    input: |
-      set -e
+# steps:
+#   - name: Deploy
+#     task: "@reeve/npm-cli"
+#     params:
+#       SSH_KNOWN_HOSTS: { env: github/fingerprints }
+#       SSH_KEY: { env: github/reeveci/reeveci.github.io/ssh-key }
+#       GIT_USER_EMAIL: { env: github/reeveci/reeveci.github.io/email }
+#       GIT_USER_NAME: { env: github/reeveci/reeveci.github.io/name }
+#       GIT_REMOTE: git@github.com:reeveci/reeveci.github.io
+#     command: /bin/sh
+#     input: |
+#       set -e
 
-      mkdir -m 0700 -p ~/.ssh
-      echo "$SSH_KNOWN_HOSTS" >~/.ssh/known_hosts
-      echo 'IdentityFile ~/.ssh/id_deploy' >~/.ssh/config
-      echo "$SSH_KEY" >~/.ssh/id_deploy
-      chmod 0600 ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/id_deploy
-      unset SSH_KNOWN_HOSTS SSH_KEY
+#       mkdir -m 0700 -p ~/.ssh
+#       echo "$SSH_KNOWN_HOSTS" >~/.ssh/known_hosts
+#       echo 'IdentityFile ~/.ssh/id_deploy' >~/.ssh/config
+#       echo "$SSH_KEY" >~/.ssh/id_deploy
+#       chmod 0600 ~/.ssh/known_hosts ~/.ssh/config ~/.ssh/id_deploy
+#       unset SSH_KNOWN_HOSTS SSH_KEY
 
-      git config --global user.email "$GIT_USER_EMAIL"
-      git config --global user.name "$GIT_USER_NAME"
-      git remote add origin $GIT_REMOTE
+#       git config --global user.email "$GIT_USER_EMAIL"
+#       git config --global user.name "$GIT_USER_NAME"
+#       git remote add origin $GIT_REMOTE
 
-      npm ci
-      npm run deploy
+#       npm ci
+#       npm run deploy
