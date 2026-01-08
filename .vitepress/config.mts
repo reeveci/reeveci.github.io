@@ -63,6 +63,13 @@ export default defineConfig({
             { text: "Getting Started", link: "/guide/getting-started" },
           ],
         },
+        {
+          text: "Configuration / Guides",
+          items: [
+            { text: "Task Domains", link: "/guide/task-domains" },
+            { text: "Trusted Tasks", link: "/guide/trusted-tasks" },
+          ],
+        },
       ],
       "/reference/": [
         {
@@ -76,7 +83,14 @@ export default defineConfig({
               base: "/reference/pipeline-step-",
               items: [
                 { text: "Overview", link: "overview" },
+                { text: "Docker Build", link: "docker-build" },
                 { text: "Docker CLI", link: "docker-cli" },
+                { text: "Docker Deploy", link: "docker-deploy" },
+                {
+                  text: "Forgejo Upload Package",
+                  link: "forgejo-upload-package",
+                },
+                { text: "Load Env File", link: "load-env-file" },
                 { text: "NPM CLI", link: "npm-cli" },
                 { text: "NPM Publish", link: "npm-publish" },
                 { text: "Reeve CLI", link: "reeve-cli" },

@@ -124,9 +124,11 @@ CGO_ENABLED=0 GOBIN=/etc/reeve/plugins go install github.com/reeveci/plugin-webu
 
 Configuration for each plugin is provided as environment variables to the Reeve server.
 Each plugin uses its own prefix `REEVE_PLUGIN_<plugin identifier>_`.
-If you want to specify a setting for all available plugins, you can use the `REEVE_SHARED_` prefix instead.
+If you want to specify a setting for all available plugins, use the `REEVE_SHARED_` prefix instead.
 
-```yaml
+::: code-group
+
+```yaml{7-8} [docker-compose.yml]
 services:
   reeve:
     image: reeveci/reeve:latest
@@ -136,6 +138,8 @@ services:
       REEVE_SHARED_CONFIG_PATH: "/etc/reeve/config"
       REEVE_PLUGIN_WEBUI_ENABLED: "true"
 ```
+
+:::
 
 :::: details Click to see how to build your own Docker image with your plugins preinstalled
 

@@ -26,3 +26,7 @@ command: docker system prune -f
 | ------------------------- | -------------------------------------------------------------------------------------------- |
 | `DOCKER_LOGIN_REGISTRIES` | Space separated list of docker registries to log in to (`user:password@registry`) (`string`) |
 | `CONTEXT`                 | Context directory (relative to project root) (default: `.`) (`string`)                       |
+
+## Trust
+
+This step requires access to the Docker socket. See [Trusted Tasks](/guide/trusted-tasks) for more information.
