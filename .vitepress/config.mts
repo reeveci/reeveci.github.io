@@ -2,6 +2,14 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    server: {
+      host: "0.0.0.0",
+      port: 8080,
+      allowedHosts: true,
+    },
+  },
+
   lang: "en-US",
   title: "Reeve CI / CD",
   description: "Extensible open source CI / CD solution",
