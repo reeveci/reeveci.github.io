@@ -40,7 +40,6 @@ steps:
       npm ci
       npm run docs:build
 
-
       cd .vitepress/dist
       git add .
       git commit -m "Deploy website - based on $COMMIT_HASH"
