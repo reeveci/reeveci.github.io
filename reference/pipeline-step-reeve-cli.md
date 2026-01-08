@@ -7,6 +7,9 @@
   <a href="https://github.com/reeveci/step-reeve-cli/blob/main/LICENSE" target="_blank">
     <img alt="License" src="https://img.shields.io/github/license/reeveci/step-reeve-cli?color=%239944ee" />
   </a>
+  <a href="https://github.com/reeveci/step-reeve-cli" target="_blank">
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-reeve-cli?label=Source" />
+  </a>
 </div>
 
 Controls a Reeve server using [Reeve CLI](/reference/cli).

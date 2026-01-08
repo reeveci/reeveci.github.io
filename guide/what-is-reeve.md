@@ -16,4 +16,7 @@ Each pipeline step is executed in dedicated containers, resulting in a high degr
   <a href="https://github.com/reeveci/reeve/blob/main/LICENSE" target="_blank">
     <img alt="License" src="https://img.shields.io/github/license/reeveci/reeve?color=%239944ee" />
   </a>
+  <a href="https://github.com/reeveci/reeve" target="_blank">
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/reeve?label=Source" />
+  </a>
 </div>

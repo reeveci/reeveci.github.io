@@ -7,6 +7,9 @@
   <a href="https://github.com/reeveci/step-npm-cli/blob/main/LICENSE" target="_blank">
     <img alt="License" src="https://img.shields.io/github/license/reeveci/step-npm-cli?color=%239944ee" />
   </a>
+  <a href="https://github.com/reeveci/step-npm-cli" target="_blank">
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-npm-cli?label=Source" />
+  </a>
 </div>
 
 Executes NPM and Node.js commands.

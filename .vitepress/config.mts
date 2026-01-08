@@ -49,7 +49,7 @@ export default defineConfig({
       { text: "Guide", link: "/guide/what-is-reeve", activeMatch: "/guide/" },
       {
         text: "Reference",
-        link: "/reference/yaml-reference",
+        link: "/reference/configuration",
         activeMatch: "/reference/",
       },
     ],
@@ -68,6 +68,7 @@ export default defineConfig({
         {
           text: "Reference",
           items: [
+            { text: "Configuration", link: "/reference/configuration" },
             { text: "YAML Reference", link: "/reference/yaml-reference" },
             { text: "CLI", link: "/reference/cli" },
             {
@@ -75,6 +76,7 @@ export default defineConfig({
               base: "/reference/pipeline-step-",
               items: [
                 { text: "Overview", link: "overview" },
+                { text: "Docker CLI", link: "docker-cli" },
                 { text: "NPM CLI", link: "npm-cli" },
                 { text: "Reeve CLI", link: "reeve-cli" },
               ],
