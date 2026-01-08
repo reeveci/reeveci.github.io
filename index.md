@@ -15,7 +15,7 @@ hero:
       link: /reference/yaml-reference
     - theme: alt
       text: Pipeline Steps
-      link: /reference/pipeline-steps/overview
+      link: /reference/pipeline-step-overview
 
 features:
   - title: Universal
