@@ -70,6 +70,11 @@ export default defineConfig({
             { text: "Trusted Tasks", link: "/guide/trusted-tasks" },
           ],
         },
+        {
+          text: "Config & API Reference",
+          base: "/reference/",
+          link: "configuration",
+        },
       ],
       "/reference/": [
         {
