@@ -72,7 +72,10 @@ export default defineConfig({
             {
               text: "Pipeline Steps",
               base: "/reference/pipeline-step-",
-              items: [{ text: "Overview", link: "overview" }],
+              items: [
+                { text: "Overview", link: "overview" },
+                { text: "Reeve CLI", link: "reeve-cli" },
+              ],
             },
           ],
         },

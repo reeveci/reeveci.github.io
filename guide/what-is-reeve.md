@@ -8,12 +8,12 @@ Each pipeline step is executed in dedicated containers, resulting in a high degr
 
 <div style="display: flex; flex-wrap: wrap; gap: .5em; margin: 1.6em 0 -.3em">
   <a href="https://hub.docker.com/r/reeveci/reeve" target="_blank">
-    <img height="20" width="171" src="https://img.shields.io/docker/v/reeveci/reeve?logo=docker&label=server%20image%20version" alt="Server Docker Image Version" />
+    <img alt="Server Docker Image Version" src="https://img.shields.io/docker/v/reeveci/reeve?logo=docker&label=reeveci%2Freeve" />
   </a>
   <a href="https://hub.docker.com/r/reeveci/reeve-worker" target="_blank">
-    <img height="20" width="169" src="https://img.shields.io/docker/v/reeveci/reeve-worker?logo=docker&label=worker%20image%20version" alt="Worker Docker Image Version" />
+    <img alt="Worker Docker Image Version" src="https://img.shields.io/docker/v/reeveci/reeve-worker?logo=docker&label=reeveci%2Freeve-worker" />
   </a>
   <a href="https://github.com/reeveci/reeve/blob/main/LICENSE" target="_blank">
-    <img height="20" width="78" src="https://img.shields.io/github/license/reeveci/reeve?color=%239944ee" alt="MIT license" />
+    <img alt="License" src="https://img.shields.io/github/license/reeveci/reeve?color=%239944ee" />
   </a>
 </div>
