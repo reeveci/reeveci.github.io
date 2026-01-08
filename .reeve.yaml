@@ -34,7 +34,7 @@ steps:
       git config --global user.name "$GIT_USER_NAME"
       unset GIT_USER_EMAIL GIT_USER_NAME
 
-      git clone "$GIT_REMOTE" --filter tree:0 --branch pages .vitepress/dist
+      git clone "$GIT_REMOTE" --branch pages .vitepress/dist
       COMMIT_HASH=$(git rev-parse --short HEAD)
 
       npm ci
