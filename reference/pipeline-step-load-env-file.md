@@ -14,6 +14,8 @@
 
 Loads runtime variables from .env files.
 
+The files are selected using [glob patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match).
+
 Params starting with `ENV_` specify which variables to load and how they should be named. E.g. the following loads the variable `REEVE_VERSION` from the file `.env` and stores the value in the runtime variable `IMAGE_VERSION`.
 
 ```yaml
@@ -24,8 +26,8 @@ params:
 
 ## Params
 
-| Param        | Description                                                                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FILES`      | Space separated list of file patterns (see https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) to be included (shell syntax) (default: `**/*.env`) (`string`) |
-| `LOAD_ALL`   | Whether to load all variables from the env files (default: `false`) (`"true" \| "false"`)                                                                            |
-| `ENV_<name>` | Variables to be loaded from the files and their corresponding runtime variable names to be used in Reeve (`string`)                                                  |
+| Param        | Description                                                                                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FILES`      | Space separated list of [file patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) to be included (shell syntax) (default: `**/*.env`) (`string`) |
+| `LOAD_ALL`   | Whether to load all variables from the env files (default: `false`) (`"true" \| "false"`)                                                                         |
+| `ENV_<name>` | Variables to be loaded from the files and their corresponding runtime variable names to be used in Reeve (`string`)                                               |

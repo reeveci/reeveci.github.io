@@ -1,20 +1,20 @@
-# Forgejo Upload Package
+# Forgejo Test Package
 
 <div style="display: flex; flex-wrap: wrap; gap: .5em; margin: 1.6em 0 -.3em">
-  <a href="https://hub.docker.com/r/reeveci/step-forgejo-upload-package" target="_blank">
-    <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-forgejo-upload-package?logo=docker&label=reeveci%2Fstep-forgejo-upload-package" />
+  <a href="https://hub.docker.com/r/reeveci/step-forgejo-test-package" target="_blank">
+    <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-forgejo-test-package?logo=docker&label=reeveci%2Fstep-forgejo-test-package" />
   </a>
-  <a href="https://github.com/reeveci/step-forgejo-upload-package/blob/main/LICENSE" target="_blank">
-    <img alt="License" src="https://img.shields.io/github/license/reeveci/step-forgejo-upload-package?color=%239944ee" />
+  <a href="https://github.com/reeveci/step-forgejo-test-package/blob/main/LICENSE" target="_blank">
+    <img alt="License" src="https://img.shields.io/github/license/reeveci/step-forgejo-test-package?color=%239944ee" />
   </a>
-  <a href="https://github.com/reeveci/step-forgejo-upload-package" target="_blank">
-    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-forgejo-upload-package?label=Source" />
+  <a href="https://github.com/reeveci/step-forgejo-test-package" target="_blank">
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-forgejo-test-package?label=Source" />
   </a>
 </div>
 
-Uploads files to a generic [Forgejo](https://forgejo.org) or [Gitea](https://gitea.com) package.
+Tests whether files are present in a generic [Forgejo](https://forgejo.org) or [Gitea](https://gitea.com) package.
 
-The files to be uploaded are determined using [glob patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match).
+The files are selected using [glob patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match).
 
 ## Params
 
@@ -27,6 +27,5 @@ The files to be uploaded are determined using [glob patterns](https://pkg.go.dev
 | `PACKAGE_NAME`    | Package name (`string`)                                                                                                                     |
 | `PACKAGE_VERSION` | Package version (`string`)                                                                                                                  |
 | `FILES`           | Space separated list of [file patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) to be included (shell syntax) (`string`) |
-| `SKIP_EXISTING`   | Skip existing files to prevent the task from failing if a file has already been uploaded (default: `true`) (`"true" \| "false"`)            |
-
-<!-- | `PACKAGE_REPOSITORY` | Repository to which the package is to be linked (optional) (`string`)                                                                          | -->
+| `FAIL`            | Whether the task should fail on the specified condition (default: `exists`) (`"exists" \| "does-not-exist" \| "false"`)                     |
+| `RESULT_VAR`      | Name of a runtime variable for setting the step result (`"failure" \| "exists" \| "does-not-exist"`) to (`string`)                          |

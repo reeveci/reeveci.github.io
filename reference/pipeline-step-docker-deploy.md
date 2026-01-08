@@ -18,7 +18,7 @@ Deploys services in a Docker environment.
 
 | Param                     | Description                                                                                                                                    |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DOCKER_LOGIN_REGISTRIES` | Space separated list of docker registries to log in to (`user:password@registry`) (`string`)                                                   |
+| `DOCKER_LOGIN_REGISTRIES` | Space separated list of Docker registries to log in to (`user:password@registry`) (`string`)                                                   |
 | `MODE`                    | Whether to use compose v1, v2 or swarm mode (default: `swarm`) (`"v1" \| "v2" \| "swarm"`)                                                     |
 | `NAME`                    | Compose project name (required for swarm mode) (`string`)                                                                                      |
 | `FILE`                    | Compose file name (use `-` for STDIN) (`string \| "-"`)                                                                                        |
