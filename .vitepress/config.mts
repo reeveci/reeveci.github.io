@@ -38,25 +38,38 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/what-is-reeve" },
+      { text: "Guide", link: "/guide/what-is-reeve", activeMatch: "/guide/" },
+      {
+        text: "Reference",
+        link: "/reference/yaml-reference",
+        activeMatch: "/reference/",
+      },
     ],
 
-    sidebar: [
-      {
-        text: "Introduction",
-        items: [
-          { text: "What is Reeve?", link: "/what-is-reeve" },
-          { text: "Getting Started", link: "/getting-started" },
-        ],
-      },
-      {
-        text: "Examples",
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
-      },
-    ],
+    sidebar: {
+      "/guide/": [
+        {
+          text: "Introduction",
+          items: [
+            { text: "What is Reeve?", link: "/guide/what-is-reeve" },
+            { text: "Getting Started", link: "/guide/getting-started" },
+          ],
+        },
+      ],
+      "/reference/": [
+        {
+          text: "Reference",
+          items: [
+            { text: "YAML Reference", link: "/reference/yaml-reference" },
+            {
+              text: "Pipeline Steps",
+              base: "/reference/pipeline-step-",
+              items: [{ text: "Overview", link: "overview" }],
+            },
+          ],
+        },
+      ],
+    },
 
     footer: {
       message: "Released under the MIT License",
