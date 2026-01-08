@@ -78,6 +78,7 @@ export default defineConfig({
                 { text: "Overview", link: "overview" },
                 { text: "Docker CLI", link: "docker-cli" },
                 { text: "NPM CLI", link: "npm-cli" },
+                { text: "NPM Publish", link: "npm-publish" },
                 { text: "Reeve CLI", link: "reeve-cli" },
               ],
             },
