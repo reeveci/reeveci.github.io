@@ -69,11 +69,13 @@ export default defineConfig({
           text: "Reference",
           items: [
             { text: "YAML Reference", link: "/reference/yaml-reference" },
+            { text: "CLI", link: "/reference/cli" },
             {
               text: "Pipeline Steps",
               base: "/reference/pipeline-step-",
               items: [
                 { text: "Overview", link: "overview" },
+                { text: "NPM CLI", link: "npm-cli" },
                 { text: "Reeve CLI", link: "reeve-cli" },
               ],
             },

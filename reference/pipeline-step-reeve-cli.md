@@ -9,7 +9,7 @@
   </a>
 </div>
 
-Controls a Reeve server using [reeve-cli](https://github.com/reeveci/reeve-cli).
+Controls a Reeve server using [Reeve CLI](/reference/cli).
 
 Use `command` to specify the CLI command, e.g.:
 
