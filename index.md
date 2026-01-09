@@ -3,9 +3,12 @@
 layout: home
 
 hero:
-  name: "Reeve CI / CD"
-  text: "Extensible open source CI / CD"
+  name: Reeve CI / CD
+  text: Extensible open source CI / CD
   tagline: Written in Go
+  image:
+    src: /logo.svg
+    alt: Reeve CI / CD
   actions:
     - theme: brand
       text: Get Started
