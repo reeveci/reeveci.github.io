@@ -23,7 +23,7 @@ The test can either be performed by checking the image's manifest (default), whi
 | Param                     | Description                                                                                                                                                            |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `DOCKER_LOGIN_REGISTRIES` | Space separated list of Docker registries to log in to (`user:password@registry`) (`string`)                                                                           |
-| `NAME`                    | Image name (required) (`string`)                                                                                                                                       |
+| `NAME`                    | Image name <Badge type="warning" text="required" /> (`string`)                                                                                                         |
 | `TAG`                     | Image tag (`string`)                                                                                                                                                   |
 | `FILE`                    | Dockerfile name (use `-` for STDIN) (`string \| "-"`)                                                                                                                  |
 | `CONTEXT`                 | Context directory (relative to project root) (default: `.`) (`string`)                                                                                                 |

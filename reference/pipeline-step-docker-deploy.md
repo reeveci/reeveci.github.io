@@ -20,7 +20,7 @@ Deploys services in a Docker environment.
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `DOCKER_LOGIN_REGISTRIES` | Space separated list of Docker registries to log in to (`user:password@registry`) (`string`)                                                   |
 | `MODE`                    | Whether to use compose v1, v2 or swarm mode (default: `swarm`) (`"v1" \| "v2" \| "swarm"`)                                                     |
-| `NAME`                    | Compose project name (required for swarm mode) (`string`)                                                                                      |
+| `NAME`                    | Compose project name <Badge type="warning" text="required for swarm mode" /> (`string`)                                                        |
 | `FILE`                    | Compose file name (use `-` for STDIN) (`string \| "-"`)                                                                                        |
 | `CONTEXT`                 | Context directory (relative to project root) (default: `.`) (`string`)                                                                         |
 | `COMPOSE_BUILD`           | Whether to build images before starting containers (default: `missing`) (`"always" \| "missing" \| "never"`)                                   |

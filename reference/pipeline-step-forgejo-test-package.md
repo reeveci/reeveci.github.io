@@ -1,4 +1,4 @@
-# Forgejo Test Package
+# Gitea / Forgejo Test Package
 
 <div style="display: flex; flex-wrap: wrap; gap: .5em; margin: 1.6em 0 -.3em">
   <a href="https://hub.docker.com/r/reeveci/step-forgejo-test-package" target="_blank">

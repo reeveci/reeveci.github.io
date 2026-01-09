@@ -1,4 +1,4 @@
-# Forgejo Upload Package
+# Gitea / Forgejo Upload Package
 
 <div style="display: flex; flex-wrap: wrap; gap: .5em; margin: 1.6em 0 -.3em">
   <a href="https://hub.docker.com/r/reeveci/step-forgejo-upload-package" target="_blank">
@@ -29,4 +29,4 @@ The files to be uploaded are determined using [glob patterns](https://pkg.go.dev
 | `FILES`           | Space separated list of [file patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) to be included (shell syntax) (`string`) |
 | `SKIP_EXISTING`   | Skip existing files to prevent the task from failing if a file has already been uploaded (default: `true`) (`"true" \| "false"`)            |
 
-<!-- | `PACKAGE_REPOSITORY` | Repository to which the package is to be linked (optional) (`string`)                                                                          | -->
+<!-- | `PACKAGE_REPOSITORY` | Repository to which the package is to be linked <Badge type="tip" text="optional" /> (`string`)                                                                          | -->

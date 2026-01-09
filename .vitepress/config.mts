@@ -84,18 +84,43 @@ export default defineConfig({
             { text: "YAML Reference", link: "/reference/yaml-reference" },
             { text: "CLI", link: "/reference/cli" },
             {
+              text: "Plugins",
+              collapsed: false,
+              base: "/reference/plugin-",
+              items: [
+                {
+                  text: "Overview",
+                  link: "overview",
+                  docFooterText: "Plugins",
+                },
+                { text: "Consul", link: "consul" },
+                { text: "Gitea / Forgejo", link: "gitea" },
+                { text: "HC Vault", link: "hcvault" },
+                { text: "Local", link: "local" },
+                { text: "Web UI", link: "webui" },
+              ],
+            },
+            {
               text: "Pipeline Steps",
+              collapsed: false,
               base: "/reference/pipeline-step-",
               items: [
-                { text: "Overview", link: "overview" },
+                {
+                  text: "Overview",
+                  link: "overview",
+                  docFooterText: "Pipeline Steps",
+                },
                 { text: "Docker Build", link: "docker-build" },
                 { text: "Docker CLI", link: "docker-cli" },
                 { text: "Docker Deploy", link: "docker-deploy" },
                 { text: "Docker Secrets", link: "docker-secrets" },
                 { text: "File Revision", link: "file-revision" },
-                { text: "Forgejo Test Package", link: "forgejo-test-package" },
                 {
-                  text: "Forgejo Upload Package",
+                  text: "Gitea / Forgejo Test Package",
+                  link: "forgejo-test-package",
+                },
+                {
+                  text: "Gitea / Forgejo Upload Package",
                   link: "forgejo-upload-package",
                 },
                 { text: "Git Select Tag", link: "git-select-tag" },

@@ -16,9 +16,9 @@ Loads a specific Git tag into a runtime variable.
 
 ## Params
 
-| Param         | Description                                                                               |
-| ------------- | ----------------------------------------------------------------------------------------- |
-| `MATCH`       | Glob to be matched against the tag (`string`)                                             |
-| `COMMIT`      | Commit-ish to be used as base point (default: `HEAD`) (`string`)                          |
-| `SED_COMMAND` | SED command for editing the selected tag name (optional) (`string`)                       |
-| `RESULT_VAR`  | Name of a runtime variable for setting the step result to (default: `GIT_TAG`) (`string`) |
+| Param         | Description                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| `MATCH`       | Glob to be matched against the tag (`string`)                                                 |
+| `COMMIT`      | Commit-ish to be used as base point (default: `HEAD`) (`string`)                              |
+| `SED_COMMAND` | SED command for editing the selected tag name <Badge type="tip" text="optional" /> (`string`) |
+| `RESULT_VAR`  | Name of a runtime variable for setting the step result to (default: `GIT_TAG`) (`string`)     |

@@ -122,9 +122,7 @@ CGO_ENABLED=0 GOBIN=/etc/reeve/plugins go install github.com/reeveci/plugin-webu
 
 :::
 
-Configuration for each plugin is provided as environment variables to the Reeve server.
-Each plugin uses its own prefix `REEVE_PLUGIN_<plugin identifier>_`.
-If you want to specify a setting for all available plugins, use the `REEVE_SHARED_` prefix instead.
+Configure your plugins by adding environment variables to the server, e.g.:
 
 ::: code-group
 
@@ -171,6 +169,8 @@ ENV REEVE_SHARED_CONFIG_PATH=/etc/reeve/config
 
 ::::
 
+Click [here](/reference/plugin-overview) for more information about plugins.
+
 ## 3. Start workers
 
 Workers are grouped into `worker groups`. A pipeline specifies which worker group(s) it should be executed on.
@@ -184,7 +184,7 @@ To achieve concurrency, simply add multiple workers to the same worker group.
 The HTTP connection between the workers and the server (specified by `REEVE_SERVER_URL`) is used to forward pipelines, including secrets, to the worker.
 The connection **MUST** be **encrypted** and **trusted** in a production environment, otherwise you run the risk of **exposing your secrets** to third parties or attackers and creating a vulnerability for Man-in-the-middle attacks and further **remote code execution** attacks.
 
-Use TLS with a trusted certificate or consider a 3rd party ZTN solution like [Tailscale](https://tailscale.com) (recommended).
+Use TLS with a trusted certificate or consider a 3rd party ZTN solution like [Tailscale](https://tailscale.com).
 
 :::
 
