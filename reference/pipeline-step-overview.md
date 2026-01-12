@@ -1,8 +1,8 @@
 # Pipeline Steps
 
-Pipeline steps are Docker images that perform dedicated actions.
+Pipeline steps are container images that perform dedicated actions.
 
-You can use any Docker image that you like as a pipeline step, however, Reeve provides a collection of images to perform commonly used actions.
+You can use any container image that you like as a pipeline step, however, Reeve provides a collection of images to perform commonly used actions.
 
 All pipeline steps run in [interactive mode](https://docs.docker.com/reference/cli/docker/container/run/#interactive).
 

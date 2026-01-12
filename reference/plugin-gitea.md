@@ -21,10 +21,6 @@ This part of the documentation is incomplete.
 Integrates a [Gitea](https://gitea.com) server.
 [Forgejo](https://forgejo.org/) is also fully supported.
 
-This plugin supports promoting actions to the [Web UI](/reference/plugin-webui) plugin.
-Actions can be logically grouped by using colons as separators, e.g. `parent-group:child-group:name`.
-To hide actions from the Web UI, prefix them with a colon, e.g. `:name`.
-
 An API token needs to be created in Gitea for this plugin.
 Please select an user which has access to all relevant repositories.
 
@@ -56,6 +52,34 @@ Plugin name: `gitea`
 | `SETUP_GIT_TASK`     | Task to be used for setting up pipelines <Badge type="warning" text="required" /> (`string`)                                                                                                                                                                                                                                                                                                                                                   |
 | `SECRET_KEY`         | Passphrase for encrypting secrets <Badge type="warning" text="required" /> (`string`)                                                                                                                                                                                                                                                                                                                                                          |
 | `DISCOVERY_SCHEDULE` | Cron expression which specifies how often the Git server should be fully scanned - the server is also scanned when the plugin starts, and single repositories are updated when a corresponding webhook is received. Scheduled server scanning can be disabled by setting the option to `never` (default: `0 12 * * *`) (`string \| "never"`)                                                                                                   |
+
+## Web UI integration
+
+This plugin supports configuration via the [Web UI](/reference/plugin-webui) plugin for:
+
+- Pipeline history
+- Action triggers
+
+## CLI integration
+
+This plugin provides commands for [Reeve CLI](/reference/cli).
+
+```sh{2-5}
+reeve ask gitea --list
+  gitea
+        action    <action> [<search ...>] - execute action
+        encrypt   <secret value> - encrypt variables for usage in pipeline file secrets
+        rescan    rescan all repositories
+```
+
+## Additional information
+
+::: tip CAVEAT
+
+Using the `file` fact when force-pushing changes may result in unexpected behavior, as monitoring file changes is limited to commits that are not already known to Gitea.
+If, for example, a branch was reset to a previous commit and then force-pushed, no new commits would be pushed, so no files would be marked as changed, even if the working directory has changed.
+
+:::
 
 ## Messages
 
@@ -90,192 +114,6 @@ Unless the `UNRESTRICTED` setting is enabled, the execution of actions is restri
 - `action` - Action to be passed to pipeline facts
 - `search` - Search term for limiting repository discovery
 
-Actions can also be triggered via the [CLI API](https://github.com/reeveci/reeve-cli):
-
-```sh
-reeve ask gitea action <action> [<search> ...]
-```
-
-## Facts
-
-The following facts are provided:
-
-- `trigger` - [`push`, `commit`] or [`push`, `tag`] or [`action`]
-- `action` - Specified action - Only available for `action` triggers
-- `ref` - Git ref - Ref of the head commit or tag, e.g. `refs/heads/main` or `refs/tags/v1.0.0`
-- `branch` - Git branch - Not available for `tag` triggers
-- `file` - Affected file(s) - Only available for `commit` triggers
-- `tag` - Git tag - Only available for `tag` triggers
-- `repository` - Full name of the repository, e.g. `ReeveCI/Reeve`
-
-> Using the `file` fact when force-pushing changes may result in unexpected behavior, as monitoring file changes is limited to commits that are not already known to Gitea.
-> If, for example, a branch was reset to a previous commit and then force-pushed, no new commits would be pushed, so no files would be marked as changed, even if the working directory has changed.
-
-## Default conditions
-
-If not specified otherwise, pipelines are limited to commits on the repository's default branch.
-This can be changed by adding conditions for `trigger` and `branch` in your pipelines `when` section.
-
-Since it is usually undesirable to execute a pipeline without restriction for all possible actions if the `action` trigger is set, this is prevented by default.
-Therefore actions must always be specified explicitely by also adding conditions for `action`.
-
 ## Pipeline definition
 
 Pipelines and environment variables are defined in the file `/.reeve.yaml` in a repository's root directory (or `/.reeve.yml`).
-
-A pipeline file can contain multiple YAML documents, which are divided with `---`, e.g.:
-
-```yaml
----
-type: variable
-name: MY_VAR
-value: some-value
-
----
-type: pipeline
-name: hello-world
-
-steps: []
-```
-
-### Templating
-
-Pipeline files can use Go templating to automatically generate repetitive pipelines.
-To enable the feature for a file, append the extension `.tmpl` to its name (e.g. `/.reeve.yaml.tmpl`).
-Files with the `.tmpl` extension must be valid [Go templates](https://pkg.go.dev/text/template),
-and can use [sprig template functions](https://masterminds.github.io/sprig/).
-
-### File Includes
-
-```yaml
----
-type: include
-path: path/to/file.yaml
-
----
-type: include
-path: path/to/file.yaml.tmpl
-templateData:
-  any:
-    - thing
-```
-
-The file to be included must end with one of the extensions `.yaml`, `.yml`, `.yaml.tmpl` or `.yml.tmpl`.
-
-If you include a template file, the key `templateData` can be used to provide parameters to your template as `.` (dot).
-The key `templateData` may contain any valid YAML.
-
-### Variables
-
-```yaml
----
-type: variable
-name: MY_ENV
-value: some-value
-```
-
-### Secrets
-
-```yaml
----
-type: secret
-name: MY_ENV
-value: some-encrypted-value
-```
-
-Values can be encrypted using the `encrypt` [CLI command](https://github.com/reeveci/reeve-cli):
-
-```sh
-reeve ask gitea encrypt '<secret value>'
-```
-
-Encryption takes place on the server, so make sure to use a secure connection between reeve-cli and the server. That is, use TLS with a valid certificate and do not set the `insecure` option.
-
-### Cron schedules
-
-```yaml
----
-type: trigger
-cron: * * * * *
-action: some-action
-```
-
-The specified action is triggered based on the schedule.
-
-Cron syntax:
-
-```
-*     *     *     *     *
-
-^     ^     ^     ^     ^
-|     |     |     |     |
-|     |     |     |     +----- day of week (0-6) (Sunday=0)
-|     |     |     +------- month (1-12)
-|     |     +--------- day of month (1-31)
-|     +----------- hour (0-23)
-+------------- min (0-59)
-```
-
-Examples:
-
-- `* * * * *` - Run on every minute
-- `0 0 * * 1` - Run at midnight on every Monday
-- `* 10,15,19 * * *` - run at 10:00, 15:00 and 19:00
-- `1-15 * * * *` - run at 1, 2, 3...15 minute of each hour
-- `*/2 * * * *` - run every two minutes
-- `1-59/2 * * * *` - run every two minutes, but on odd minutes
-
-Details: https://github.com/mileusna/crontab
-
-### Pipelines
-
-```yaml
----
-type: pipeline
-name: hello-world
-description: |
-  # Markdown description for your pipeline
-
-when:
-  some-fact:
-    include: [value]
-    exclude: [value]
-    include env: [MY_ENV]
-    exclude env: [MY_ENV]
-    match: [^regexp$]
-    mismatch: [^regexp$]
-  env MY_ENV:
-
-steps:
-  - name: greet
-    stage: greeting
-    task: hello-world
-    command: ["sh", "-c", "echo hello-world"]
-    input: |
-      data to be sent
-      to stdin
-    directory: /host/directory/to/be/mounted
-    user: "user-or-uid"
-    params:
-      PARAM1: some-value
-      PARAM2: { env: MY_ENV, replace: [/regexp/replacement/] }
-      PARAM3: { var: MY_VAR, replace: [] }
-
-    ignoreFailure: true
-
-    when:
-      fact:
-        include: [value]
-        exclude: [value]
-        include env: [MY_ENV]
-        exclude env: [MY_ENV]
-        include var: [MY_ENV]
-        exclude var: [MY_ENV]
-        match: [^regexp$]
-        mismatch: [^regexp$]
-      env MY_ENV:
-      var MY_VAR:
-```
-
-If a valid README file is found in the root of the repository, it is appended to all pipelines' descriptions.
-You can disable this for individual pipelines by suffixing your description with `[no readme]`.

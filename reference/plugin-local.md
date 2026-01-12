@@ -14,17 +14,6 @@
 
 Provides pipeline environment variables from local storage.
 
-This plugin supports configuration via the [Web UI](/reference/plugin-webui) plugin.
-
-Configuration is also supported via [Reeve CLI](/reference/cli):
-
-```sh
-reeve ask local --list
-reeve ask local set <name> <value>
-reeve ask local set-secret <name> <value>
-reeve ask local list
-```
-
 ## Settings
 
 Plugin name: `local`
@@ -35,3 +24,23 @@ Plugin name: `local`
 | `CONFIG_PATH` | Path to where configuration files should be stored on disk (the plugin stores its files in a subdirectory) <Badge type="warning" text="required" /> (`string`) |
 | `SECRET_KEY`  | Passphrase for encrypting secrets <Badge type="warning" text="required" /> (`string`)                                                                          |
 | `PRIORITY`    | Priority of the variables provided by the plugin (default: `1`) (`number`)                                                                                     |
+
+## Web UI integration
+
+This plugin supports configuration via the [Web UI](/reference/plugin-webui) plugin for:
+
+- Environment variables / secrets
+
+## CLI integration
+
+This plugin provides commands for [Reeve CLI](/reference/cli).
+
+```sh{2-7}
+reeve ask local --list
+  local
+        get          <name> - get environment variable
+        list         - list environment variables and secrets
+        set          <name> <value> - set environment variable
+        set-secret   <name> <value> - set environment secret
+        unset        <name> - unset environment variable or secret
+```

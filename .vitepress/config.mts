@@ -64,10 +64,36 @@ export default defineConfig({
           ],
         },
         {
-          text: "Configuration / Guides",
+          text: "Configuration",
           items: [
             { text: "Task Domains", link: "/guide/task-domains" },
             { text: "Trusted Tasks", link: "/guide/trusted-tasks" },
+            { text: "Regex", link: "/guide/regex" },
+            { text: "Cron", link: "/guide/cron" },
+          ],
+        },
+        {
+          text: "Pipelines",
+          items: [
+            { text: "Writing Pipelines", link: "/guide/writing-pipelines" },
+            { text: "Variables", link: "/guide/variables" },
+            { text: "Conditions", link: "/guide/conditions" },
+            { text: "Actions", link: "/guide/actions" },
+            { text: "Templating", link: "/guide/templating" },
+          ],
+        },
+        {
+          text: "Development",
+          collapsed: false,
+          items: [
+            {
+              text: "Writing a Plugin",
+              link: "/guide/writing-a-plugin",
+            },
+            {
+              text: "Creating a Reeve Step",
+              link: "/guide/creating-a-reeve-step",
+            },
           ],
         },
         {
