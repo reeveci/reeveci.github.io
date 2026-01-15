@@ -23,7 +23,7 @@ This can be used to automatically redeploy services when the files change.
 
 ## Params
 
-| Param          | Description                                                                                                                                                                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FILES`        | Space separated list of [file patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) to be included (shell syntax) (`string`)                                                                                                                      |
-| `REVISION_VAR` | Name of a runtime variable for setting the files' revision to - this value can for example be applied to related containers as a Docker label or environment variable in order to automatically update them when a file changes (default: `FILE_REV`) (`string`) |
+| Param          | Description                                                                                                                                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FILES`        | Space separated list of [file patterns](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) to be included (shell syntax) (`string`)                                                                                                       |
+| `REVISION_VAR` | Name of a runtime variable for setting the files' revision to - this value can for example be applied to related containers as an environment variable in order to automatically update them when a file changes (default: `FILE_REV`) (`string`) |

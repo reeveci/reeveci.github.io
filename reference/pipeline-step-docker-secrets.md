@@ -22,14 +22,14 @@ This can be used to automatically redeploy services when the secrets change.
 
 ## Params
 
-| Param           | Description                                                                                                                                                                                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `VOLUME`        | Name of the volume (`string`)                                                                                                                                                                                                                                          |
-| `TARGET_UID`    | User ID owning the files (default: `1000`) (`number`)                                                                                                                                                                                                                  |
-| `TARGET_GID`    | Group ID owning the files (default: `1000`) (`number`)                                                                                                                                                                                                                 |
-| `FILE_MODE`     | Mode to apply to the secrets (default: `0440`) (`number`)                                                                                                                                                                                                              |
-| `REVISION_VAR`  | Name of a runtime variable for setting the volume's revision to - this value can for example be applied to related containers as a Docker label or environment variable in order to automatically update them when a secret changes (default: `SECRET_REV`) (`string`) |
-| `SECRET_<name>` | Names and values of the secrets to be written to the volume (`string`)                                                                                                                                                                                                 |
+| Param           | Description                                                                                                                                                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `VOLUME`        | Name of the volume (`string`)                                                                                                                                                                                                                           |
+| `TARGET_UID`    | User ID owning the files (default: `1000`) (`number`)                                                                                                                                                                                                   |
+| `TARGET_GID`    | Group ID owning the files (default: `1000`) (`number`)                                                                                                                                                                                                  |
+| `FILE_MODE`     | Mode to apply to the secrets (default: `0440`) (`number`)                                                                                                                                                                                               |
+| `REVISION_VAR`  | Name of a runtime variable for setting the volume's revision to - this value can for example be applied to related containers as an environment variable in order to automatically update them when a secret changes (default: `SECRET_REV`) (`string`) |
+| `SECRET_<name>` | Names and values of the secrets to be written to the volume (`string`)                                                                                                                                                                                  |
 
 ## Trust
 
