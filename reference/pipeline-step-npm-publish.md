@@ -23,4 +23,6 @@ Publishes NPM packages.
 | `NPM_LOGIN_USER`     | NPM user to log in with (instead of `NPM_LOGIN_TOKEN`) (`string`)                        |
 | `NPM_LOGIN_PASSWORD` | NPM password to log in with (instead of `NPM_LOGIN_TOKEN`) (`string`)                    |
 | `CONTEXT`            | Context directory (relative to project root) (default: `.`) (`string`)                   |
+| `OTP`                | One-time password to use for publishing (`string`)                                       |
+| `ACCESS`             | Access level (`"public" \| "restricted"`)                                                |
 | `TAG`                | Tag to publish (`string`)                                                                |

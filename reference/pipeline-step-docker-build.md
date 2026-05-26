@@ -25,6 +25,7 @@ The test can either be performed by checking the image's manifest (default), whi
 | `DOCKER_LOGIN_REGISTRIES` | Space separated list of Docker registries to log in to (`user:password@registry`) (`string`)                                                                           |
 | `NAME`                    | Image name <Badge type="warning" text="required" /> (`string`)                                                                                                         |
 | `TAG`                     | Image tag (`string`)                                                                                                                                                   |
+| `TAG_ALIASES`             | Space separated list of additional image tags to use - params can be resolved as variables (`$MY_PARAM`) (default: `latest`) (`string`)                                |
 | `FILE`                    | Dockerfile name (use `-` for STDIN) (`string \| "-"`)                                                                                                                  |
 | `CONTEXT`                 | Context directory (relative to project root) (default: `.`) (`string`)                                                                                                 |
 | `BUILD_ARGS`              | Space separated list of `ARG=VALUE` pairs (or just `ARG` to refer to params directly) - params can be resolved as variables (`ARG=$MY_PARAM` or `MY_PARAM`) (`string`) |
@@ -32,12 +33,11 @@ The test can either be performed by checking the image's manifest (default), whi
 | `USE_CACHE`               | Whether to use the build cache (default: `true`) (`"true" \| "false"`)                                                                                                 |
 | `PLATFORM`                | Platform to be used if the server is multi-platform capable (`string`)                                                                                                 |
 | `PULL`                    | Whether to attempt to pull a newer version of the image (default: `missing`) (`"always" \| "missing"`)                                                                 |
-| `SQUASH`                  | Whether to squash newly built layers into a single new layer (default: `false`) (`"true" \| "false"`)                                                                  |
 | `PUSH`                    | Whether to push the newly built image (default: `true`) (`"true" \| "false"`)                                                                                          |
-| `PUSH_LATEST`             | Whether to also push the newly built image with `latest` tag (default: `true`) (`"true" \| "false"`)                                                                   |
 | `TEST`                    | Whether to test for an existing image (default: `true`) (`"true" \| "fail" \| "false"`)                                                                                |
 | `TEST_PULL`               | Whether to perform a pull for testing for an existing image (default: `false`) (`"true" \| "false"`)                                                                   |
 | `RESULT_VAR`              | Name of a runtime variable for setting the step result (`"failure" \| "exists" \| "success"`) to (`string`)                                                            |
+| `BUILD_DRIVER`            | Build driver to be used (default: `docker`) (`string`)                                                                                                                 |
 
 ## Trust
 
