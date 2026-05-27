@@ -156,6 +156,7 @@ export default defineConfig({
                   text: "Node Get Package Version",
                   link: "node-get-package-version",
                 },
+                { text: "Notify", link: "notify" },
                 { text: "NPM CLI", link: "npm-cli" },
                 { text: "NPM Publish", link: "npm-publish" },
                 { text: "Reeve CLI", link: "reeve-cli" },
