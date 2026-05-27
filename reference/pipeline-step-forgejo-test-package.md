@@ -5,10 +5,10 @@
     <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-forgejo-test-package?logo=docker&label=reeveci%2Fstep-forgejo-test-package" />
   </a>
   <a href="https://github.com/reeveci/pipeline-steps/blob/main/LICENSE" target="_blank">
-    <img alt="License" src="https://img.shields.io/github/license/reeveci/step-forgejo-test-package?color=%239944ee" />
+    <img alt="License" src="https://img.shields.io/github/license/reeveci/pipeline-steps?color=%239944ee" />
   </a>
   <a href="https://github.com/reeveci/pipeline-steps" target="_blank">
-    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-forgejo-test-package?label=Source" />
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/pipeline-steps?label=Source" />
   </a>
 </div>
 

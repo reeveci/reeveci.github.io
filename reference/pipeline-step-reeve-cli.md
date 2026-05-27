@@ -5,10 +5,10 @@
     <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-reeve-cli?logo=docker&label=reeveci%2Fstep-reeve-cli" />
   </a>
   <a href="https://github.com/reeveci/pipeline-steps/blob/main/LICENSE" target="_blank">
-    <img alt="License" src="https://img.shields.io/github/license/reeveci/step-reeve-cli?color=%239944ee" />
+    <img alt="License" src="https://img.shields.io/github/license/reeveci/pipeline-steps?color=%239944ee" />
   </a>
   <a href="https://github.com/reeveci/pipeline-steps" target="_blank">
-    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-reeve-cli?label=Source" />
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/pipeline-steps?label=Source" />
   </a>
 </div>
 

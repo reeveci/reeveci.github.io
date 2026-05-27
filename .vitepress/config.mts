@@ -140,6 +140,7 @@ export default defineConfig({
                 { text: "Docker CLI", link: "docker-cli" },
                 { text: "Docker Deploy", link: "docker-deploy" },
                 { text: "Docker Secrets", link: "docker-secrets" },
+                { text: "Envsubst", link: "envsubst" },
                 { text: "File Revision", link: "file-revision" },
                 {
                   text: "Gitea / Forgejo Test Package",
