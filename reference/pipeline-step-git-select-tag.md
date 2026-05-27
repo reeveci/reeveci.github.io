@@ -4,10 +4,10 @@
   <a href="https://hub.docker.com/r/reeveci/step-git-select-tag" target="_blank">
     <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-git-select-tag?logo=docker&label=reeveci%2Fstep-git-select-tag" />
   </a>
-  <a href="https://github.com/reeveci/step-git-select-tag/blob/main/LICENSE" target="_blank">
+  <a href="https://github.com/reeveci/pipeline-steps/blob/main/LICENSE" target="_blank">
     <img alt="License" src="https://img.shields.io/github/license/reeveci/step-git-select-tag?color=%239944ee" />
   </a>
-  <a href="https://github.com/reeveci/step-git-select-tag" target="_blank">
+  <a href="https://github.com/reeveci/pipeline-steps" target="_blank">
     <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-git-select-tag?label=Source" />
   </a>
 </div>

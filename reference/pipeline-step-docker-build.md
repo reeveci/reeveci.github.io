@@ -4,11 +4,11 @@
   <a href="https://hub.docker.com/r/reeveci/step-docker-build" target="_blank">
     <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-docker-build?logo=docker&label=reeveci%2Fstep-docker-build" />
   </a>
-  <a href="https://github.com/reeveci/step-docker-build/blob/main/LICENSE" target="_blank">
-    <img alt="License" src="https://img.shields.io/github/license/reeveci/step-docker-build?color=%239944ee" />
+  <a href="https://github.com/reeveci/pipeline-steps/blob/main/LICENSE" target="_blank">
+    <img alt="License" src="https://img.shields.io/github/license/reeveci/pipeline-steps?color=%239944ee" />
   </a>
-  <a href="https://github.com/reeveci/step-docker-build" target="_blank">
-    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-docker-build?label=Source" />
+  <a href="https://github.com/reeveci/pipeline-steps" target="_blank">
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/pipeline-steps?label=Source" />
   </a>
 </div>
 

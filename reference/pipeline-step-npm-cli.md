@@ -4,10 +4,10 @@
   <a href="https://hub.docker.com/r/reeveci/step-npm-cli" target="_blank">
     <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/reeveci/step-npm-cli?logo=docker&label=reeveci%2Fstep-npm-cli" />
   </a>
-  <a href="https://github.com/reeveci/step-npm-cli/blob/main/LICENSE" target="_blank">
+  <a href="https://github.com/reeveci/pipeline-steps/blob/main/LICENSE" target="_blank">
     <img alt="License" src="https://img.shields.io/github/license/reeveci/step-npm-cli?color=%239944ee" />
   </a>
-  <a href="https://github.com/reeveci/step-npm-cli" target="_blank">
+  <a href="https://github.com/reeveci/pipeline-steps" target="_blank">
     <img alt="Git Repository" src="https://img.shields.io/github/stars/reeveci/step-npm-cli?label=Source" />
   </a>
 </div>
