@@ -1,17 +1,14 @@
 ---
 type: pipeline
-name: Deploy Reeve Documentation
+name: deploy reeve documentation
 
 when:
-  workerGroup:
-    include: [soldier]
-  trigger:
-    include: [commit, action]
-  action:
-    include: [reeveci:documentation:deploy]
+  workerGroup: { include: [soldier@midgar] }
+  trigger: { include: [commit, action] }
+  action: { include: [reeveci:deploy-documentation] }
 
 steps:
-  - name: Deploy
+  - name: deploy
     task: "@reeve/npm-cli"
     params:
       SSH_KNOWN_HOSTS: { env: github/fingerprints }
