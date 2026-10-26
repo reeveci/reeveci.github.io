@@ -1,6 +1,6 @@
 ---
 type: pipeline
-name: deploy reeve documentation
+name: deploy page - reeveci.github.io
 
 when:
   workerGroup: { include: [soldier@midgar] }
@@ -8,7 +8,7 @@ when:
   action: { include: [pages:reeveci.github.io:deploy] }
 
 steps:
-  - name: deploy
+  - name: deploy page - reeveci.github.io
     task: "@reeve/npm-cli"
     params:
       SSH_KNOWN_HOSTS: { env: github/fingerprints }
