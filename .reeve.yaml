@@ -5,7 +5,7 @@ name: deploy reeve documentation
 when:
   workerGroup: { include: [soldier@midgar] }
   trigger: { include: [commit, action] }
-  action: { include: [reeveci:deploy-documentation] }
+  action: { include: [pages:reeveci.github.io:deploy] }
 
 steps:
   - name: deploy
